@@ -1,7 +1,7 @@
 import React from "react";
 //import { moviesData } from "../moviesData";
 import MovieItem from "./MovieItem";
-
+import { API_URL, API_KEY_3} from "../utils/api"
 // UI = fn(state, props)
 
 // App = new React.Component()
@@ -18,7 +18,14 @@ class App extends React.Component {
   }
   
   componentDidMount() {
-    fetch("https://api.themoviedb.org/3/discover/movie?api_key=cf6096a8d791d45ef5823f980e616c89")
+    fetch(`${API_URL}?api_key=${API_KEY_3}`).then((response) => {
+      return response.json()
+    }).then((data) => {
+      console.log("data", data)
+      this.setState({
+        movies: data.results
+      })
+    })
     console.log('didMount')
   }
 
