@@ -1,5 +1,5 @@
 import React from "react";
-import { moviesData } from "../moviesData";
+//import { moviesData } from "../moviesData";
 import MovieItem from "./MovieItem";
 
 // UI = fn(state, props)
@@ -11,9 +11,15 @@ class App extends React.Component {
     super();
 
     this.state = {
-      movies: moviesData,
+      movies: [],
       moviesWillWatch: []
     };
+    console.log('constructor')
+  }
+  
+  componentDidMount() {
+    fetch("https://api.themoviedb.org/3/discover/movie?api_key=cf6096a8d791d45ef5823f980e616c89")
+    console.log('didMount')
   }
 
   deleteMovie = movie => {
