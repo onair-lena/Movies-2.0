@@ -2,6 +2,7 @@ import React from "react";
 //import { moviesData } from "../moviesData";
 import MovieItem from "./MovieItem";
 import { API_URL, API_KEY_3} from "../utils/api"
+import MovieTabs from "./MovieTabs"
 // UI = fn(state, props)
 
 // App = new React.Component()
@@ -65,7 +66,12 @@ class App extends React.Component {
       <div className="container">
         <div className="row mt-4">
           <div className="col-9">
-            <div className="row">
+          <div className="row">
+            <div className="col-12">
+              <MovieTabs />
+            </div>
+          </div>
+              <div className="row">
               {this.state.movies.map(movie => {
                 return (
                   <div className="col-6 mb-4" key={movie.id}>
