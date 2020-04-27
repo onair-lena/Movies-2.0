@@ -3,6 +3,7 @@ import React from "react";
 import MovieItem from "./MovieItem";
 import { API_URL, API_KEY_3} from "../utils/api"
 import MovieTabs from "./MovieTabs"
+import MoviePages from "./MoviePages"
 // UI = fn(state, props)
 
 // App = new React.Component()
@@ -14,7 +15,8 @@ class App extends React.Component {
     this.state = {
       movies: [],
       moviesWillWatch: [],
-      sort_by: "popularity.desc"
+      sort_by: "popularity.desc",
+      pages: []
     };
     console.log('constructor')
   }
@@ -37,8 +39,10 @@ this.getMovies()
     .then((data) => {
       console.log("data", data)
       this.setState({
-        movies: data.results
+        movies: data.results,
+        pages: data.total_pages
       })
+      console.log("this.setState", this.state.pages)
     })
   }
 
@@ -121,6 +125,16 @@ this.getMovies()
             </ul>
           </div>
         </div>
+        <MoviePages pages={this.state.pages}/>
+{/* 
+          {this.state.total_pages.map(page => {
+                return (
+                  <div className="pb-4 h4 col-8 text-center" key={page}>
+                    <MoviePages/>
+                  </div>
+                );
+              })} */}
+
       </div>
     );
   }
