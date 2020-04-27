@@ -1,13 +1,13 @@
 import React from 'react'
 
 const MoviePages = (props) => {
-  const { pages } = props
+  const { page, pages, updateNextPage } = props
   
-//   const handleClick = (value) => {
-//     return () => {
-//     updateSortBy(value)
-//     }
-//   }
+  const nextClick = (value) => {
+    return () => {
+    updateNextPage(value)
+    }
+  }
 
 // const getClassLink = (value) => {
 //   return `nav-link ${
@@ -19,9 +19,9 @@ const MoviePages = (props) => {
     <div className="row col-9">
       <div className="col-2 h4">Prev</div>
       <div className="pb-4 h4 col-8 text-center">
-        {pages}
+        {page} of {pages}
       </div>
-      <div className="col-2 h4 text-right">Next</div>
+      <div className="col-2 h4 text-right" onClick={nextClick(props.page)}>Next</div>
     </div>
 
 

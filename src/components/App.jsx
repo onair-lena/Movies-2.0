@@ -16,7 +16,8 @@ class App extends React.Component {
       movies: [],
       moviesWillWatch: [],
       sort_by: "popularity.desc",
-      pages: []
+      pages: [],
+      page: 1
     };
     console.log('constructor')
   }
@@ -26,23 +27,25 @@ class App extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.sort_by !== this.state.sort_by) {
+    if (prevState.sort_by !== this.state.sort_by || prevState.page !== this.state.page) {
 this.getMovies()
     }
   }
+  
 
   getMovies = () => {
     fetch(`${API_URL}?api_key=${API_KEY_3}&sort_by=${
-      this.state.sort_by}`).then((response) => {
+      this.state.sort_by}&page=${this.state.page}`).then((response) => {
       return response.json()
     })
     .then((data) => {
       console.log("data", data)
       this.setState({
         movies: data.results,
-        pages: data.total_pages
+        pages: data.total_pages,
+        page: data.page
       })
-      console.log("this.setState", this.state.pages)
+      // console.log("this.setState", this.state.pages)
     })
   }
 
@@ -79,6 +82,13 @@ this.getMovies()
   updateSortBy = (value) => {
     this.setState({
       sort_by: value
+    })
+  }
+
+  updateNextPage = (value) => {
+    console.log("value", value);
+    this.setState({
+      page: value+1
     })
   }
 
@@ -125,7 +135,7 @@ this.getMovies()
             </ul>
           </div>
         </div>
-        <MoviePages pages={this.state.pages}/>
+        <MoviePages pages={this.state.pages} page={this.state.page} updateNextPage={this.updateNextPage} />
 {/* 
           {this.state.total_pages.map(page => {
                 return (
