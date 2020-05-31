@@ -100,7 +100,7 @@ this.getMovies()
   }}
 
   render() {
-    console.log("render", this);
+    console.log("render", this)
     return (
       <div className="container pb-4">
         <div className="row mt-4">
