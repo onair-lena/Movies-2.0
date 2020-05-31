@@ -17,9 +17,8 @@ class App extends React.Component {
       moviesWillWatch: [],
       sort_by: "popularity.desc",
       pages: [],
-      page: 1
+      page: 2
     };
-    console.log('constructor')
   }
   
   componentDidMount() {
@@ -52,7 +51,6 @@ this.getMovies()
   deleteMovie = movie => {
     console.log(movie.id);
     const updateMovies = this.state.movies.filter(item => item.id !== movie.id);
-    console.log(updateMovies);
 
     // this.state.movies = updateMovies;
     this.setState({
@@ -86,16 +84,25 @@ this.getMovies()
   }
 
   updateNextPage = (value) => {
-    console.log("value", value);
+    console.log("value next", this.state.page)
+    if (value !==this.state.pages) {
     this.setState({
       page: value+1
     })
-  }
+  }}
+
+  updatePrevPage = (value) => {
+    console.log("value prev", this.state.page)
+    if (value !== 1) {
+    this.setState({
+      page: value-1
+    })
+  }}
 
   render() {
     console.log("render", this);
     return (
-      <div className="container">
+      <div className="container pb-4">
         <div className="row mt-4">
           <div className="col-9">
           <div className="row mb-4">
@@ -135,16 +142,12 @@ this.getMovies()
             </ul>
           </div>
         </div>
-        <MoviePages pages={this.state.pages} page={this.state.page} updateNextPage={this.updateNextPage} />
-{/* 
-          {this.state.total_pages.map(page => {
-                return (
-                  <div className="pb-4 h4 col-8 text-center" key={page}>
-                    <MoviePages/>
-                  </div>
-                );
-              })} */}
-
+        <MoviePages
+          pages={this.state.pages}
+          page={this.state.page}
+          updateNextPage={this.updateNextPage}
+          updatePrevPage={this.updatePrevPage}
+          />
       </div>
     );
   }

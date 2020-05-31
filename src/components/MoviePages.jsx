@@ -1,11 +1,17 @@
 import React from 'react'
 
 const MoviePages = (props) => {
-  const { page, pages, updateNextPage } = props
+  const { page, pages, updateNextPage, updatePrevPage } = props
   
   const nextClick = (value) => {
     return () => {
     updateNextPage(value)
+    }
+  }
+
+  const prevClick = (value) => {
+    return () => {
+    updatePrevPage(value)
     }
   }
 
@@ -16,42 +22,13 @@ const MoviePages = (props) => {
 // }
 
   return (
-    <div className="row col-9">
-      <div className="col-2 h4">Prev</div>
-      <div className="pb-4 h4 col-8 text-center">
+    <div className="row col-9 flex justify-content-between">
+      <button type="button" className="col-2 h4" onClick={prevClick(props.page)}>Prev</button>
+      <div className="h4 col-5 text-center">
         {page} of {pages}
       </div>
-      <div className="col-2 h4 text-right" onClick={nextClick(props.page)}>Next</div>
+      <button type="button" className="col-2 h4" onClick={nextClick(props.page)}>Next</button>
     </div>
-
-
-    // <div>
-    //   <ul className="tabs nav nav-pills">
-    //     <li className="nav-item">
-    //       <div 
-    //         className={getClassLink("popularity.desc")}
-    //         onClick={handleClick("popularity.desc")}
-    //         >
-    //         Porular
-    //       </div>
-    //     </li>
-    //     <li className="nav-item">
-    //       <div className={getClassLink("revenue.desc")}
-    //         onClick={handleClick("revenue.desc")}
-    //       >
-    //         Revenue
-    //       </div>
-    //     </li>
-    //     <li className="nav-item">
-    //     {/* <div className={`nav-link ${sort_by === "vote_average.desc" ? "active" : ""}`} */}
-    //     <div className={getClassLink("vote_average.desc")}
-    //       onClick={handleClick("vote_average.desc")}
-    //     >
-    //         Vote
-    //       </div>
-    //     </li>
-    //   </ul>
-    // </div>
   )
 }
 

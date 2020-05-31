@@ -1,5 +1,5 @@
 {
-  "name": "reactwarriors-workshop",
+  "name": "movies_2.0",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,7 +14,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -27,5 +29,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/onair-lena/Movies-2.0.git",
+  "author": "onair-lena <pechenko@bk.ru>",
+  "license": "MIT",
+  "devDependencies": {
+    "gh-pages": "^3.0.0"
+  },
+  "homepage": "http://onair-lena.github.io/Movies-2.0"
 }
