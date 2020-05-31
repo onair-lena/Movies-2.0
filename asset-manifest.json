@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Movies-2.0/static/css/main.d1978104.chunk.css",
+    "main.js": "/Movies-2.0/static/js/main.bf3f5dfd.chunk.js",
+    "main.js.map": "/Movies-2.0/static/js/main.bf3f5dfd.chunk.js.map",
+    "runtime~main.js": "/Movies-2.0/static/js/runtime~main.d46c7ba3.js",
+    "runtime~main.js.map": "/Movies-2.0/static/js/runtime~main.d46c7ba3.js.map",
+    "static/css/2.0624914a.chunk.css": "/Movies-2.0/static/css/2.0624914a.chunk.css",
+    "static/js/2.44c7a01c.chunk.js": "/Movies-2.0/static/js/2.44c7a01c.chunk.js",
+    "static/js/2.44c7a01c.chunk.js.map": "/Movies-2.0/static/js/2.44c7a01c.chunk.js.map",
+    "index.html": "/Movies-2.0/index.html",
+    "precache-manifest.2b14fd98c5686d253bbbdc69bc995466.js": "/Movies-2.0/precache-manifest.2b14fd98c5686d253bbbdc69bc995466.js",
+    "service-worker.js": "/Movies-2.0/service-worker.js",
+    "static/css/2.0624914a.chunk.css.map": "/Movies-2.0/static/css/2.0624914a.chunk.css.map",
+    "static/css/main.d1978104.chunk.css.map": "/Movies-2.0/static/css/main.d1978104.chunk.css.map"
+  }
+}
